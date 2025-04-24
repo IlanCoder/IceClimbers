@@ -130,7 +130,7 @@ GameObject:
   - component: {fileID: 361979934}
   - component: {fileID: 361979933}
   - component: {fileID: 361979935}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Wall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -485,7 +485,7 @@ GameObject:
   - component: {fileID: 1162335210}
   - component: {fileID: 1162335209}
   - component: {fileID: 1162335211}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Floor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -653,7 +653,7 @@ GameObject:
   - component: {fileID: 1357296975}
   - component: {fileID: 1357296974}
   - component: {fileID: 1357296976}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Wall (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -861,7 +861,7 @@ Transform:
   m_GameObject: {fileID: 1598828199}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.57, y: 0.83, z: 0}
+  m_LocalPosition: {x: -4.57, y: -6.9, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -881,6 +881,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 5
   jumpForce: 9
+  groundedRCLayerMask:
+    serializedVersion: 2
+    m_Bits: 8
 --- !u!114 &1598828203
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -910,7 +913,7 @@ Rigidbody2D:
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_GravityScale: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: f41bb9cd8fe456945a99d7f150c18d11, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0

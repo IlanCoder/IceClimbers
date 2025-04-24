@@ -9,6 +9,10 @@ public class MovementController : MonoBehaviour
     [SerializeField] float speed;
     [SerializeField] float jumpForce;
 
+    [SerializeField] LayerMask groundedRCLayerMask;
+
+    bool grounded;
+
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -17,22 +21,24 @@ public class MovementController : MonoBehaviour
 
     private void OnEnable()
     {
-        inputs.OnJumpEvent += HanldeOnJump;
+        inputs.OnJumpEvent += HandleOnJump;
     }
 
     private void OnDisable()
     {
-        inputs.OnJumpEvent -= HanldeOnJump;
+        inputs.OnJumpEvent -= HandleOnJump;
     }
 
     void FixedUpdate()
     {
-        rb.linearVelocityX = inputs.moveDir * speed;
+        
+        //Origin, direction, distance, collision filter
+        grounded = Physics2D.Raycast(transform.position, Vector2.down, 1.05f, groundedRCLayerMask);
+        if(grounded) rb.linearVelocityX = inputs.moveDir * speed;
     }
 
-
-    private void HanldeOnJump(object sender, EventArgs e)
+    private void HandleOnJump(object sender, EventArgs e)
     {
-        rb.linearVelocityY = jumpForce;
+        if(grounded) rb.linearVelocityY = jumpForce;
     }
 }
